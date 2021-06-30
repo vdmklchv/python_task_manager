@@ -14,8 +14,11 @@ def print_task(num: int) -> None:
 
 
 def list_tasks() -> None:
-    for entry in tasks:
-        print(f"{entry.id} - {entry.name}")
+    if len(tasks) == 0:
+        print("No tasks to display")
+    else:
+        for entry in tasks:
+            print(f"{entry.id} - {entry.name}")
 
 
 def get_length() -> int:

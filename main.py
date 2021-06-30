@@ -14,19 +14,27 @@ while True:
 
     if menu_choice.lower() not in choices:
         print("Incorrect input")
+
     elif menu_choice.lower() == '1':
         task_name = input("Input task name: ")
-        new_task = create_task(task_name)
-        task_manager.add_task(new_task)
+        if task_name:
+            new_task = create_task(task_name)
+            task_manager.add_task(new_task)
+        else:
+            print("Task not created. Empty input.")
+
     elif menu_choice.lower() == '2':
         task_manager.list_tasks()
+
     elif menu_choice.lower() == '4':
         task_num = int(input("Number of task to remove: "))
         task_manager.remove_task(task_num)
+
     elif menu_choice.lower() == '5':
         task_num = int(input("Input task number: "))
         if (int(task_num) >= 0) and (task_num <= task_manager.get_length()):
             task_manager.print_task(task_num)
         else:
             print("No task with such id")
+
     continue
