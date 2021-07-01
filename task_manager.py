@@ -3,7 +3,7 @@ import task
 __tasks = []
 
 
-def get_task(num: int) -> task.Task:
+def get_task(num: int) -> task.Task or None:
     for entry in __tasks:
         if entry.id == num:
             return entry
