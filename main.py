@@ -38,7 +38,7 @@ while True:
 
     elif menu_choice == '5':
         task_num = int(input("Input task number: "))
-        if (int(task_num) >= 0) and (task_num <= task_manager.get_length()):
+        if (task_num >= 0) and (task_num <= task_manager.get_length() + 1):
             task_manager.print_task(task_num)
         else:
             print("No task with such id")

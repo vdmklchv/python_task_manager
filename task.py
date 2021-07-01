@@ -19,7 +19,7 @@ class Task:
             -----
             name: {self.name}
             id: {self.id}
-            date: {self.date:}
+            date: {self.date}
             complete: {self.is_done}
         """
 

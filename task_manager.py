@@ -8,7 +8,8 @@ def get_task(num: int) -> task.Task:
         if entry.id == num:
             return entry
         else:
-            return None
+            continue
+    return None
 
 
 def add_task(name: task.Task) -> None:
@@ -16,9 +17,9 @@ def add_task(name: task.Task) -> None:
 
 
 def print_task(num: int) -> None:
-    task = get_task(num)
+    task_to_print = get_task(num)
     if task:
-        print(task)
+        print(task_to_print)
 
 
 def list_tasks() -> None:
@@ -34,21 +35,21 @@ def get_length() -> int:
 
 
 def toggle_complete(num: int):
-    task = get_task(num)
-    if task:
-        task.is_done = not task.is_done
+    task_to_complete = get_task(num)
+    if task_to_complete:
+        task_to_complete.is_done = not task_to_complete.is_done
 
 
 def remove_task(num: int):
-    task = get_task(num)
-    if task:
-        task_index = __tasks.index(task)
+    task_to_remove = get_task(num)
+    if task_to_remove:
+        task_index = __tasks.index(task_to_remove)
         __tasks.pop(task_index)
 
 
 def edit_task_name(num: int):
-    task = get_task(num)
-    if task:
+    task_to_edit = get_task(num)
+    if task_to_edit:
         new_name = input("Input new task name: ")
         task.name = new_name
     else:
