@@ -3,14 +3,22 @@ import task
 tasks = []
 
 
+def get_task(num: int) -> task.Task:
+    for entry in tasks:
+        if entry.id == num:
+            return entry
+        else:
+            return None
+
+
 def add_task(name: task.Task) -> None:
     tasks.append(name)
 
 
 def print_task(num: int) -> None:
-    for entry in tasks:
-        if entry.id == num:
-            print(entry)
+    task = get_task(num)
+    if task:
+        print(task)
 
 
 def list_tasks() -> None:
@@ -26,13 +34,13 @@ def get_length() -> int:
 
 
 def toggle_complete(num: int):
-    for entry in tasks:
-        if entry.id == num:
-            entry.is_done = not entry.is_done
+    task = get_task(num)
+    if task:
+       task.is_done = not task.is_done
 
 
 def remove_task(num: int):
-    for entry in tasks:
-        if entry.id == num:
-            task_index = tasks.index(entry)
-            tasks.pop(task_index)
+    task = get_task(num)
+    if task:
+        task_index = tasks.index(task)
+        tasks.pop(task_index)
