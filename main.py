@@ -3,8 +3,7 @@ import task_manager
 
 
 def create_task(name: str) -> task.Task:
-    user_task = task.Task(name)
-    return user_task
+    return task.Task(name)
 
 
 while True:
@@ -28,6 +27,10 @@ while True:
 
     elif menu_choice == '2':
         task_manager.list_tasks()
+
+    elif menu_choice == '3':
+        task_num = int(input("Number of task to edit: "))
+        task_manager.edit_task_name(task_num)
 
     elif menu_choice == '4':
         task_num = int(input("Number of task to remove: "))

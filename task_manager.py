@@ -36,7 +36,7 @@ def get_length() -> int:
 def toggle_complete(num: int):
     task = get_task(num)
     if task:
-       task.is_done = not task.is_done
+        task.is_done = not task.is_done
 
 
 def remove_task(num: int):
@@ -44,3 +44,12 @@ def remove_task(num: int):
     if task:
         task_index = tasks.index(task)
         tasks.pop(task_index)
+
+
+def edit_task_name(num: int):
+    task = get_task(num)
+    if task:
+        new_name = input("Input new task name: ")
+        task.name = new_name
+    else:
+        print("No task with this id")
